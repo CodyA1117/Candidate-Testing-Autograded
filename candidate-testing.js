@@ -1,4 +1,4 @@
-const input = require('readline-sync');
+const input = require('readline-sync');//Updated github auto grader.  
 
 // TODO 2: modify your quiz app to ask 5 questions //
 
