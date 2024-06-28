@@ -3,11 +3,11 @@ const input = require('readline-sync');//Updated github auto grader.
 // TODO 2: modify your quiz app to ask 5 questions //
 
 // TODO 1.1a: Define candidateName //
-let candidateName = " ";
+let candidateName = "";
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
-let candidateAnswer = " ";
+let candidateAnswer = "";
 
 
 //TODO: Variables for Part 2
@@ -35,7 +35,7 @@ function askQuestion() {
 
 
   }
-let candidateAnswer = readlineSync.question ("Who was the first American woman in space? ");
+
 
 }
 
@@ -51,19 +51,32 @@ for(let i = 0; i < questions.length; i++){
   console.log(`Correct answer: ${correctAnswers[i]}\n`);
 
 
-  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
-  console.log ("Thats Correct!")
+  if (candidateAnswers[i].trim().toLowerCase() === correctAnswers[i].toLowerCase()){
+  console.log ("Thats Correct!");
+  correctCount++;
   }   else {
   console.log ("Oops thats not right!")
   }
 }
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = correctCount / questions.length * 100;
+  console.log(`Your final grade is: ${grade}%. `);
+  console.log(`You answered ${correctCount} out of ${questions.length} questions correctly.`);
 
 
+
+  if (grade >= 80) {
+    console.log("Congradulations you passed!");
+  } else {
+    console.log("Sorry!  You did not pass this one. Please try");
+  }
   return grade;
-}
+  }
+  
+//TODO 3.2 use this variable to calculate the candidates score.
+
+
 
 function runProgram() {
   askForName();
