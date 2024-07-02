@@ -28,7 +28,7 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  for(let i = 0; i < questions.length; i++){ // Fixed loop condition
+  for(let i = 0; i < questions.length; i++){ 
     candidateAnswers[i] = input.question(`${i + 1}) ${questions[i]} `); // Use the correct variable
   }
 }
@@ -36,6 +36,7 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly //
   console.log("\nFeedback:");
+  console.log(`Candidate Name: ${candidateName}`)
   let correctCount = 0;
 
   for(let i = 0; i < questions.length; i++){
@@ -56,13 +57,13 @@ function gradeQuiz(candidateAnswers) {
   }
 
   let grade = correctCount / questions.length * 100;
-  console.log(`Your final grade is: ${grade}%. `);
+  console.log(`>>>Your final grade is: ${grade}%.<<< `);
   console.log(`You answered ${correctCount} out of ${questions.length} questions correctly.`);
 
   if (grade >= 80) {
-    console.log("Congratulations you passed!");
+    console.log(">>>Status: PASSED <<<");
   } else {
-    console.log("Sorry! You did not pass this one. Please try again.");
+    console.log(">>>Status: FAILED <<<");
   }
   return grade;
 }
